@@ -1,0 +1,1155 @@
+/* ==========================================================================
+   HELICORP MAIN APPLICATION STYLESHEET
+   Asynchronously loaded - Non-blocking
+   ========================================================================== */
+
+/* Section Layouts */
+.section {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--space-3xl) auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   SCROLLYTELLING & PARALLAX FLIGHT PROFILE
+   ========================================================================== */
+.scrolly-section {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.flight-profile-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .flight-profile-container {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+.scrolly-sticky-card {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-lg));
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.telemetry-hud-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hud-screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--accent-cyan);
+}
+
+.hud-radar-display {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.05) 0%, #080d14 70%);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(0, 240, 255, 0.25) 0deg, transparent 60deg, transparent 360deg);
+  border-radius: 50%;
+  animation: radarRotate 4s linear infinite;
+}
+
+@keyframes radarRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-aircraft-blip {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-normal);
+}
+
+.blip-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 10px var(--accent-cyan));
+}
+
+.hud-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+}
+
+.telemetry-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.cell-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.cell-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.scrolly-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  padding: var(--space-xl) 0;
+}
+
+.scrolly-step-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.scrolly-step-card.active {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.15);
+  transform: translateX(6px);
+}
+
+.step-phase-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.step-desc {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FLEET SHOWCASE & MINI E-COMMERCE
+   ========================================================================== */
+.fleet-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-2xl);
+}
+
+.filter-btn {
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-card);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-cyan);
+  color: var(--text-inverted);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .fleet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.aircraft-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.aircraft-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+.aircraft-thumb-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--bg-tertiary);
+}
+
+.aircraft-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.aircraft-card:hover .aircraft-thumb-img {
+  transform: scale(1.05);
+}
+
+.aircraft-card-category {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-subtle);
+}
+
+.wishlist-toggle-btn {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.wishlist-toggle-btn:hover {
+  transform: scale(1.1);
+  color: var(--accent-rose);
+}
+
+.wishlist-toggle-btn.in-wishlist {
+  color: var(--accent-rose);
+  border-color: var(--accent-rose);
+  background-color: rgba(244, 63, 94, 0.15);
+}
+
+.aircraft-info-box {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-md);
+}
+
+.aircraft-card-name {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.aircraft-card-tagline {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  min-height: 40px;
+}
+
+.aircraft-quick-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+.quick-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quick-spec-val {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.quick-spec-lbl {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+
+.aircraft-pricing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.pricing-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.price-amount {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.deposit-note {
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+}
+
+/* ==========================================================================
+   TECHNICAL SPECIFICATIONS COMPARATOR
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-xl);
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9375rem;
+}
+
+.specs-table th,
+.specs-table td {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.specs-table th {
+  background-color: var(--bg-secondary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+  position: sticky;
+  top: 0;
+}
+
+.specs-table th.model-header {
+  color: var(--accent-cyan);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+.specs-table tr:hover td {
+  background-color: var(--surface-card-hover);
+}
+
+.specs-table td.spec-param-title {
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.specs-table td.spec-val {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   HIGHLIGHT FEATURES (BENTO GRID - Taste Skill Standards)
+   ========================================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bento-card-large {
+    grid-column: span 2;
+  }
+}
+
+.bento-card {
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.bento-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+}
+
+.bento-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.bento-card-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FORM & REAL WEBHOOK SECTION
+   ========================================================================== */
+.booking-section {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.booking-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .form-grid-2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px var(--accent-cyan-glow);
+}
+
+.form-input.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--accent-rose);
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+}
+
+.form-error-msg {
+  font-size: 0.75rem;
+  color: var(--accent-rose);
+  min-height: 16px;
+}
+
+.form-webhook-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  padding: var(--space-xs) var(--space-md);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-subtle);
+}
+
+/* ==========================================================================
+   MODALS & DRAWERS (Wishlist, Cart, Modal Details)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+  z-index: calc(var(--z-modal) + 1);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+}
+
+.drawer-panel.is-open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.drawer-close-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.drawer-body {
+  padding: var(--space-lg);
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.drawer-footer {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--surface-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Modal Dialog */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 90%;
+  max-width: 680px;
+  max-height: 90vh;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  z-index: calc(var(--z-modal) + 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+.modal-container.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==========================================================================
+   RECENTLY VIEWED BOTTOM STRIP
+   ========================================================================== */
+.recently-viewed-strip {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-xs) var(--space-lg);
+  z-index: var(--z-hud);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+}
+
+.recently-viewed-strip.is-visible {
+  transform: translateY(0);
+}
+
+.recent-items-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  overflow-x: auto;
+}
+
+.recent-item-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.25rem 0.75rem;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.recent-item-pill:hover {
+  border-color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   LIVE AVIONICS TELEMETRY HUD (Floating Cockpit Console)
+   ========================================================================== */
+.hud-floating-trigger {
+  position: fixed;
+  bottom: var(--space-xl);
+  left: var(--space-xl);
+  z-index: var(--z-hud);
+}
+
+.hud-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.625rem 1rem;
+  background-color: var(--surface-card);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  transition: all var(--transition-fast);
+}
+
+.hud-trigger-btn:hover {
+  background-color: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 24px rgba(0, 240, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.hud-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald);
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulseBeacon 1.5s infinite;
+}
+
+@keyframes pulseBeacon {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.hud-console-drawer {
+  position: fixed;
+  bottom: calc(var(--space-xl) + 50px);
+  left: var(--space-xl);
+  width: 380px;
+  max-height: 480px;
+  background-color: #070b12;
+  border: 1px solid var(--accent-cyan);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.2);
+  z-index: var(--z-hud);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all var(--transition-fast);
+}
+
+.hud-console-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hud-console-header {
+  padding: var(--space-xs) var(--space-md);
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.15) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+}
+
+.hud-log-stream {
+  padding: var(--space-sm);
+  overflow-y: auto;
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  color: var(--text-secondary);
+}
+
+.hud-log-entry {
+  padding: 4px 6px;
+  border-radius: var(--radius-xs);
+  background-color: rgba(255, 255, 255, 0.03);
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.hud-log-entry.event-click { border-left: 2px solid var(--accent-cyan); }
+.hud-log-entry.event-scroll { border-left: 2px solid var(--accent-amber); }
+.hud-log-entry.event-form { border-left: 2px solid var(--accent-emerald); }
+
+/* ==========================================================================
+   AI FLIGHT ASSISTANT CHATBOT
+   ========================================================================== */
+.chatbot-floating-trigger {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  z-index: var(--z-chat);
+}
+
+.chat-trigger-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  color: var(--text-inverted);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.chat-trigger-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.6);
+}
+
+.chat-widget-window {
+  position: fixed;
+  bottom: calc(var(--space-xl) + 70px);
+  right: var(--space-xl);
+  width: 360px;
+  height: 500px;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.5);
+  z-index: var(--z-chat);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: all var(--transition-normal);
+}
+
+.chat-widget-window.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.chat-header {
+  padding: var(--space-md);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-assistant-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.assistant-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--accent-cyan);
+  color: var(--text-inverted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.chat-body {
+  padding: var(--space-md);
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 0.625rem 0.875rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.chat-bubble.assistant {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--radius-xs);
+}
+
+.chat-bubble.user {
+  background-color: var(--accent-cyan);
+  color: var(--text-inverted);
+  align-self: flex-end;
+  border-bottom-right-radius: var(--radius-xs);
+}
+
+.chat-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  padding: 0 var(--space-md) var(--space-xs) var(--space-md);
+}
+
+.chat-chip-btn {
+  font-size: 0.6875rem;
+  padding: 3px 8px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.chat-chip-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.chat-footer {
+  padding: var(--space-xs) var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-secondary);
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--surface-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION SYSTEM
+   ========================================================================== */
+.toast-container {
+  position: fixed;
+  top: calc(var(--header-height) + var(--space-md));
+  right: var(--space-lg);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 420px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.875rem;
+  animation: slideToast 250ms ease-out;
+}
+
+@keyframes slideToast {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.toast-success { border-left: 4px solid var(--accent-emerald); }
+.toast.toast-error { border-left: 4px solid var(--accent-rose); }
+.toast.toast-info { border-left: 4px solid var(--accent-cyan); }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-3xl) 0 var(--space-xl) 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-links a:hover {
+  color: var(--accent-cyan);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border-subtle);
+  align-items: center;
+  text-align: center;
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
