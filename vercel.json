@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/newsletter",
+      "destination": "/api/newsletter.js"
+    },
+    {
+      "source": "/api/telemetry",
+      "destination": "/api/telemetry.js"
+    },
+    {
+      "source": "/api/chat",
+      "destination": "/api/chat.js"
+    }
+  ]
+}
