@@ -1,0 +1,110 @@
+TỔNG HỢP YÊU CẦU DỰ ÁN
+
+1. Giao diện và thẩm mỹ
+
+- Công nghệ: Sử dụng ngôn ngữ/framework mà bạn cảm thấy tự tin nhất.
+- Cấu trúc trang tối thiểu:
+  + Hero Section
+  + Khu vực giới thiệu tính năng nổi bật
+  + Khu vực thông số kỹ thuật
+  + Form đăng ký nhận tin
+- Thiết kế UI/UX:
+  + Layout hiện đại, sạch sẽ
+  + Font chữ và màu sắc hài hòa
+  + Spacing và Typography hợp lý
+- Responsive:
+  + Hiển thị tốt trên Desktop và Mobile
+  + Không bị vỡ giao diện
+
+2. Tối ưu hiệu năng và SEO
+
+- Performance:
+  + Tối ưu mã nguồn và hình ảnh
+  + Đạt điểm Google PageSpeed Insights (Mobile) từ 85/100 trở lên
+- SEO Technical:
+  + Title
+  + Meta Description
+  + Open Graph (OG Title, OG Description, OG Image)
+
+3. Quản lý mã nguồn và triển khai
+
+- Sử dụng Git và GitHub để quản lý source code
+- Commit message rõ ràng
+- Tổ chức branch hợp lý
+- Deploy website lên:
+  + Vercel
+  + Netlify
+  + Cloudflare Pages
+- Cung cấp:
+  + Link GitHub Repository
+  + Link website đã deploy
+
+4. Yêu cầu nâng cao
+
+4.1 Form và Webhook
+
+- Kiểm tra tính hợp lệ dữ liệu nhập vào
+- Gửi dữ liệu đến Webhook thực tế
+- Hiển thị thông báo thành công/thất bại cho người dùng
+
+4.2 Tracking hành vi người dùng
+
+- Theo dõi sự kiện click
+- Theo dõi hành vi scroll
+- Hiển thị hoặc ghi nhận các hành vi người dùng
+
+4.3 Dark Mode
+
+- Hỗ trợ chuyển đổi Light/Dark Mode
+- Lưu trạng thái giao diện nếu có thể
+
+4.4 Hiệu ứng và trải nghiệm người dùng
+
+- Scroll Animation
+- Skeleton Loading
+- Micro-interactions
+- Các hiệu ứng nâng cao giúp website mượt mà và sinh động hơn
+
+4.5 Backend (Khuyến khích)
+
+- Tích hợp backend để lưu trữ dữ liệu người dùng
+- Có thể sử dụng:
+  + Node.js
+  + Express
+  + NestJS
+  + Firebase
+  + Supabase
+  + Hoặc giải pháp tương đương
+
+4.6 Scrollytelling và Parallax
+
+- Thiết kế website theo dạng kể chuyện khi cuộn trang (Scrollytelling)
+- Kết hợp hiệu ứng Parallax
+- Tạo cảm giác cao cấp, hiện đại cho website thương hiệu
+
+4.7 Mini E-commerce
+
+- Danh sách sản phẩm yêu thích (Wishlist)
+- Giỏ hàng (Cart)
+- Danh sách sản phẩm đã xem gần đây (Recently Viewed)
+- Hoạt động mượt mà và thân thiện với người dùng
+
+4.8 Chatbot trực tuyến
+
+- Hiển thị cửa sổ chat ở góc màn hình
+- Hỗ trợ trả lời thông tin sản phẩm tự động
+- Có thể tích hợp AI thông qua:
+  + OpenAI API
+  + Gemini API
+  + Hoặc dịch vụ tương tự
+
+KẾT QUẢ CẦN BÀN GIAO
+
+1. Source code trên GitHub.
+2. Website deploy và hoạt động thực tế.
+3. Landing page đầy đủ các section bắt buộc.
+4. Responsive trên Desktop và Mobile.
+5. SEO cơ bản hoàn chỉnh.
+6. Hiệu năng PageSpeed Mobile ≥ 85.
+7. Tích hợp form + validation + webhook.
+8. Có Dark Mode, animation và các tính năng nâng cao theo khả năng th
