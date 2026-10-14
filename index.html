@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HELICORP | Đỉnh Cao Trực Thăng Thế Hệ Mới & Urban Air Mobility</title>
+  <meta name="description" content="Helicorp tiên phong sản xuất trực thăng hybrid hành pháp, trực thăng tải trọng lớn và máy bay eVTOL không phát thải. Trải nghiệm hàng không tương lai ngay hôm nay." />
+  <meta name="keywords" content="trực thăng, eVTOL, urban air mobility, helicopter, helicorp, máy bay cá nhân, hàng không cao cấp" />
+  <meta name="author" content="Helicorp Aerospace Group" />
+  <meta name="theme-color" content="#070a10" />
+  <link rel="canonical" href="https://helicorp.aero" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://helicorp.aero/" />
+  <meta property="og:title" content="HELICORP | Đỉnh Cao Trực Thăng Thế Hệ Mới & Urban Air Mobility" />
+  <meta property="og:description" content="Tiên phong công nghệ trực thăng hybrid và eVTOL không phát thải với công nghệ triệt tiêu âm thanh QuietRotor™ và buồng lái tự chủ L4." />
+  <meta property="og:image" content="/images/hx9-hero.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="HELICORP | Trực Thăng Thế Hệ Mới & eVTOL" />
+  <meta name="twitter:description" content="Khám phá hạm đội trực thăng hybrid hành pháp và phương tiện bay cất hạ cánh thẳng đứng đô thị tiên tiến nhất." />
+  <meta name="twitter:image" content="/images/hx9-hero.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/images/logo.jpg" />
+
+  <!-- Google Fonts Preconnect & Swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Preload LCP Image (Rule 3 PageSpeed) -->
+  <link rel="preload" as="image" href="/images/hx9-hero.jpg" fetchpriority="high" />
+
+  <!-- Critical Inline CSS (Rule 1 PageSpeed <= 14.6KB) -->
+  <style>
+    /* Design Tokens */
+    :root {
+      --bg-primary: #070a10;
+      --bg-secondary: #0d121c;
+      --bg-tertiary: #141c2b;
+      --bg-glass: rgba(13, 18, 28, 0.75);
+      --bg-glass-hover: rgba(20, 28, 43, 0.9);
+      --surface-card: #111724;
+      --surface-card-hover: #172033;
+      --surface-input: #0b0f17;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(0, 240, 255, 0.35);
+      --border-active: #00f0ff;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --text-inverted: #070a10;
+      --accent-cyan: #00f0ff;
+      --accent-cyan-glow: rgba(0, 240, 255, 0.25);
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --space-2xs: 0.25rem;
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4.5rem;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-pill: 9999px;
+      --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 25px rgba(0, 240, 255, 0.2);
+      --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-normal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+      --header-height: 76px;
+      --container-max: 1280px;
+      --z-nav: 100;
+      --z-modal: 200;
+      --z-toast: 300;
+      --z-hud: 150;
+      --z-chat: 180;
+    }
+    :root[data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #edf2f7;
+      --bg-glass: rgba(255, 255, 255, 0.85);
+      --surface-card: #ffffff;
+      --surface-card-hover: #f1f5f9;
+      --surface-input: #ffffff;
+      --border-subtle: rgba(15, 23, 42, 0.08);
+      --border-hover: rgba(2, 132, 199, 0.4);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --text-inverted: #ffffff;
+      --accent-cyan: #0284c7;
+      --accent-cyan-glow: rgba(2, 132, 199, 0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-family: var(--font-body); scroll-behavior: smooth; }
+    body { min-height: 100vh; background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; font-size: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); z-index: var(--z-nav); background-color: var(--bg-glass); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+    .brand-link { display: flex; align-items: center; gap: var(--space-sm); font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+    .brand-logo-img { width: 40px; height: 40px; border-radius: var(--radius-sm); object-fit: cover; border: 1px solid var(--border-subtle); }
+    .brand-text-accent { color: var(--accent-cyan); }
+    .main-nav { display: none; }
+    @media (min-width: 900px) { .main-nav { display: flex; align-items: center; gap: var(--space-xl); } }
+    .nav-link { font-size: 0.9375rem; font-weight: 500; color: var(--text-secondary); transition: color var(--transition-fast); }
+    .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+    .header-actions { display: flex; align-items: center; gap: var(--space-xs); }
+    .action-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background-color: var(--surface-card); color: var(--text-secondary); position: relative; transition: all var(--transition-fast); }
+    .action-btn:hover { color: var(--accent-cyan); border-color: var(--border-hover); }
+    .action-badge { position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: var(--radius-pill); background-color: var(--accent-cyan); color: var(--text-inverted); font-size: 0.6875rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-xs); padding: 0.75rem 1.5rem; font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 600; border-radius: var(--radius-md); transition: all var(--transition-fast); }
+    .btn-primary { background-color: var(--accent-cyan); color: var(--text-inverted); box-shadow: 0 0 20px var(--accent-cyan-glow); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(0, 240, 255, 0.45); }
+    .btn-secondary { background-color: var(--surface-card); color: var(--text-primary); border: 1px solid var(--border-subtle); }
+    .btn-secondary:hover { border-color: var(--border-hover); transform: translateY(-1px); }
+    .hero-section { position: relative; min-height: 100vh; padding-top: calc(var(--header-height) + var(--space-3xl)); padding-bottom: var(--space-3xl); display: flex; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); align-items: center; width: 100%; }
+    @media (min-width: 992px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: var(--space-3xl); } }
+    .hero-content { display: flex; flex-direction: column; gap: var(--space-lg); }
+    .badge { display: inline-flex; align-items: center; gap: var(--space-2xs); padding: 0.35rem 0.75rem; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; border-radius: var(--radius-pill); border: 1px solid var(--border-subtle); background-color: rgba(0, 240, 255, 0.08); color: var(--accent-cyan); width: fit-content; }
+    .hero-title { font-family: var(--font-heading); font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+    .hero-title-gradient { color: var(--accent-cyan); }
+    .hero-desc { font-size: clamp(1rem, 1.8vw, 1.1875rem); color: var(--text-secondary); max-width: 580px; }
+    .hero-cta-group { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+    .hero-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); padding-top: var(--space-lg); border-top: 1px solid var(--border-subtle); }
+    .metric-value { font-family: var(--font-mono); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 700; color: var(--accent-cyan); }
+    .metric-label { font-size: 0.8125rem; color: var(--text-muted); }
+    .hero-visual { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); background-color: var(--surface-card); box-shadow: var(--shadow-lg), var(--shadow-glow); }
+    .hero-image { width: 100%; height: 100%; object-fit: cover; }
+  </style>
+
+  <!-- Non-blocking Asynchronous CSS Preload (Rule 1 & 2 PageSpeed) -->
+  <link rel="preload" href="/src/styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/src/styles/main.css" /></noscript>
+
+  <!-- Structured Data JSON-LD Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AerospaceBusiness",
+    "name": "Helicorp Aerospace Group",
+    "url": "https://helicorp.aero",
+    "logo": "https://helicorp.aero/images/logo.jpg",
+    "description": "Nhà phát triển và chế tạo trực thăng hybrid hành pháp, trực thăng vận tải cứu hộ và máy bay cất hạ cánh thẳng đứng chạy điện (eVTOL).",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "VN",
+      "addressLocality": "Hà Nội"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Helicorp Aircraft Fleet",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Helicorp HX-9 Stealth Phantom" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Helicorp H-600 SkyLifter" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Helicorp Veloce VT-4 Horizon eVTOL" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Helicorp Aura MedEvac-8" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-link" id="brandLogoLink" aria-label="Helicorp Trang Chủ">
+        <img src="/images/logo.jpg" alt="Helicorp Logo" width="40" height="40" class="brand-logo-img" />
+        <span>HELI<span class="brand-text-accent">CORP</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#hero" class="nav-link active" data-nav-target="hero">Trang chủ</a>
+        <a href="#scrollytelling" class="nav-link" data-nav-target="scrollytelling">Hành trình bay</a>
+        <a href="#features" class="nav-link" data-nav-target="features">Công nghệ lõi</a>
+        <a href="#fleet" class="nav-link" data-nav-target="fleet">Hạm đội</a>
+        <a href="#specifications" class="nav-link" data-nav-target="specifications">Thông số</a>
+        <a href="#booking" class="nav-link" data-nav-target="booking">Đặt lịch bay thử</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" class="action-btn" id="themeToggleBtn" aria-label="Chuyển chế độ giao diện Sáng/Tối" title="Chuyển chế độ Sáng/Tối">
+          <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Wishlist Drawer Trigger -->
+        <button type="button" class="action-btn" id="wishlistTriggerBtn" aria-label="Mở danh sách yêu thích" title="Danh sách yêu thích">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Cart Drawer Trigger -->
+        <button type="button" class="action-btn" id="cartTriggerBtn" aria-label="Mở giỏ cọc máy bay" title="Giỏ cọc máy bay">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="action-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- CTA Header Button -->
+        <a href="#booking" class="btn btn-primary btn-sm" id="headerCtaBtn">Đặt lịch bay</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero-section" id="hero" aria-labelledby="heroTitle">
+      <div class="hero-backdrop"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="hud-pulse-dot"></span>
+            AEROSPACE EXCELLENCE 2026
+          </div>
+          <h1 class="hero-title" id="heroTitle">
+            Kỷ Nguyên Mới Của <span class="hero-title-gradient">Trực Thăng Hybrid</span> & Không Gian Đô Thị
+          </h1>
+          <p class="hero-desc">
+            Helicorp định nghĩa lại bầu trời với công nghệ động cơ lai tuabin điện, hệ thống triệt tiêu âm thanh QuietRotor™ và chuẩn an toàn tự chủ hàng không cấp độ 4.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#fleet" class="btn btn-primary" id="heroExploreFleetBtn">
+              Khám Phá Hạm Đội
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#booking" class="btn btn-secondary" id="heroBookingBtn">
+              Đặt Lịch Bay Thử Nghiệm
+            </a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-value">375 <small style="font-size: 0.65em;">km/h</small></span>
+              <span class="metric-label">Vận tốc tối đa HX-9</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">1,150 <small style="font-size: 0.65em;">km</small></span>
+              <span class="metric-label">Tầm bay liên tục H-600</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">48 <small style="font-size: 0.65em;">dBA</small></span>
+              <span class="metric-label">Độ ồn cực thấp eVTOL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="/images/hx9-hero.jpg" alt="Trực thăng hành pháp Helicorp HX-9 Stealth Phantom trên bãi đáp nóc nhà chọc trời" width="1920" height="1080" fetchpriority="high" decoding="async" class="hero-image" id="lcpHeroImage" />
+          <div class="hero-visual-badge">
+            STATUS: AIRBORNE READY // VERTIPORT 01
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SCROLLYTELLING & PARALLAX FLIGHT PROFILE -->
+    <section class="section scrolly-section" id="scrollytelling" aria-labelledby="scrollyTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">MISSION TELEMETRY PROFILE</div>
+          <h2 class="section-title" id="scrollyTitle">Hành Trình Khám Phá Không Gian Trung Tầng</h2>
+          <p class="section-desc">Cuộn trang để trải nghiệm trực quan từng giai đoạn vận hành của trực thăng thế hệ mới qua hệ thống radar avionics kỹ thuật số.</p>
+        </div>
+
+        <div class="flight-profile-container">
+          <!-- Sticky Avionics HUD Radar Screen -->
+          <div class="scrolly-sticky-card">
+            <div class="telemetry-hud-card">
+              <div class="hud-screen-header">
+                <span>AVIONICS FLIGHT HUD v4.2</span>
+                <span id="hudMissionStatusBadge" style="color: var(--accent-emerald);">● ACTIVE SIMULATION</span>
+              </div>
+              <div class="hud-radar-display">
+                <div class="radar-sweep"></div>
+                <div class="radar-aircraft-blip" id="radarAircraftBlip">
+                  <svg class="blip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15 8 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 8 12 2"></polygon>
+                  </svg>
+                  <span id="hudAircraftTag" style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-cyan);">HX-9 PHANTOM</span>
+                </div>
+              </div>
+              <div class="hud-telemetry-grid">
+                <div class="telemetry-cell">
+                  <span class="cell-label">Độ cao (Altitude)</span>
+                  <span class="cell-value" id="hudAltitudeValue">1,200 m</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Tốc độ gió (Airspeed)</span>
+                  <span class="cell-value" id="hudSpeedValue">340 km/h</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Trạng thái động cơ</span>
+                  <span class="cell-value" id="hudPowertrainStatus" style="color: var(--accent-emerald);">HYBRID TORQUE BOOST</span>
+                </div>
+                <div class="telemetry-cell">
+                  <span class="cell-label">Mức ồn âm học</span>
+                  <span class="cell-value" id="hudNoiseValue">64 dBA (Whisper)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Scrolly Steps -->
+          <div class="scrolly-steps" id="scrollyStepsContainer">
+            <article class="scrolly-step-card active" data-step="0">
+              <span class="step-phase-badge">PHA 01 // KHỞI ĐỘNG VÀ CẤT CÁNH THẲNG ĐỨNG</span>
+              <h3 class="step-title">Vertiport Precision Lift-Off</h3>
+              <p class="step-desc">Động cơ điện mô-men xoắn cao kích hoạt tức thì trong 0.8 giây, loại bỏ độ trễ tăng áp tuabin khí truyền thống. Máy bay cất cánh êm ái từ trung tâm tài chính mà không gây rung chấn kết cấu tòa nhà.</p>
+            </article>
+
+            <article class="scrolly-step-card" data-step="1">
+              <span class="step-phase-badge">PHA 02 // CHUYỂN TIẾP VECTƠ LỰC ĐẨY</span>
+              <h3 class="step-title">Vector Thrust & Cruise Transition</h3>
+              <p class="step-desc">Hệ thống cánh quạt nghiêng và cánh tà biến thiên khí động lực học kích hoạt, chuyển hướng luồng lực đẩy từ nâng sang tiến về phía trước. Gia tốc mượt mà đạt vận tốc hành trình 340 km/h chỉ sau 45 giây.</p>
+            </article>
+
+            <article class="scrolly-step-card" data-step="2">
+              <span class="step-phase-badge">PHA 03 // BAY HÀNH TRÌNH ĐỘ CAO CAO</span>
+              <h3 class="step-title">Stratospheric Stealth & QuietRotor™</h3>
+              <p class="step-desc">Tại trần bay 6.200 mét, công nghệ triệt tiêu sóng âm đối pha phát sóng âm ngược tần số để triệt tiêu tiếng xoáy của đầu mút cánh quạt, mang lại không gian đàm thoại cabin tĩnh lặng như phòng hòa nhạc hạng sang.</p>
+            </article>
+
+            <article class="scrolly-step-card" data-step="3">
+              <span class="step-phase-badge">PHA 04 // HẠ CÁNH AN TOÀN TỰ CHỦ</span>
+              <h3 class="step-title">SafeLand™ LiDAR Autonomy</h3>
+              <p class="step-desc">Hệ thống quét LiDAR 3D 1 triệu điểm/giây liên tục lập bản đồ bề mặt hạ cánh, nhận diện gió cắt và chướng ngại vật micro-drone để tự động tiếp đất êm ái tuyệt đối ngay cả khi mất tầm nhìn do sương mù dày đặc.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HIGHLIGHT FEATURES (BENTO GRID) -->
+    <section class="section" id="features" aria-labelledby="featuresTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">NEXT-GEN AEROSPACE TECH</div>
+          <h2 class="section-title" id="featuresTitle">Đột Phá Kỹ Nghệ Hàng Không</h2>
+          <p class="section-desc">Kết tinh của 15 năm nghiên cứu vật liệu composite nano titan và trí tuệ nhân tạo điều khiển bay.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-card-large">
+            <div class="bento-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <h3 class="bento-card-title">Hệ Thống Động Lực Lai Turbine-Electric Hybrid 800V</h3>
+            <p class="bento-card-text">Kết hợp giữa hai tuabin khí hiệu suất nhiệt cao và khối pin thể rắn 800V công nghệ mới nhất. Cắt giảm 60% lượng khí thải carbon, tiết kiệm 42% chi phí nhiên liệu vận hành mỗi giờ bay so với trực thăng thông thường.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+            </div>
+            <h3 class="bento-card-title">Hệ Thống Lái Tự Chủ Cấp Độ 4</h3>
+            <p class="bento-card-text">Tự động tránh va chạm địa hình HTAWS, duy trì quỹ đạo an toàn trong bão lớn với hệ thống máy tính bay ba kênh dự phòng.</p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="bento-card-title">Thân Vỏ Liền Khối Carbon-Titanium</h3>
+            <p class="bento-card-text">Khung sườn gia cường phân tử titan đúc liền sợi carbon, tăng 300% khả năng hấp thụ va đập mà vẫn giữ trọng lượng siêu nhẹ.</p>
+          </div>
+
+          <div class="bento-card bento-card-large">
+            <div class="bento-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </div>
+            <h3 class="bento-card-title">Cánh Quạt Triệt Tiêu Âm Học QuietRotor™ Độc Quyền</h3>
+            <p class="bento-card-text">Thiết kế đầu cánh lượn sóng hình lưỡi cưa sinh thái học giảm thiểu sóng xung kích âm thanh. Đạt chứng nhận cất hạ cánh không giới hạn tại các khu vực nội đô khắt khe nhất tại Geneva, Tokyo và Singapore.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FLEET SHOWCASE & MINI E-COMMERCE -->
+    <section class="section" id="fleet" aria-labelledby="fleetTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">AIRCRAFT FLEET & CONFIGURATOR</div>
+          <h2 class="section-title" id="fleetTitle">Hạm Đội Trực Thăng & eVTOL</h2>
+          <p class="section-desc">Chọn dòng máy bay phù hợp với sứ mệnh của bạn. Thêm vào danh sách yêu thích hoặc cấu hình nội thất và đặt cọc suất bàn giao ưu tiên.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="fleet-filters" role="tablist" aria-label="Bộ lọc phân khúc trực thăng">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Tất cả mẫu máy bay</button>
+          <button type="button" class="filter-btn" data-filter="executive" role="tab" aria-selected="false">VIP Executive</button>
+          <button type="button" class="filter-btn" data-filter="cargo" role="tab" aria-selected="false">Vận tải hạng nặng</button>
+          <button type="button" class="filter-btn" data-filter="evtol" role="tab" aria-selected="false">Urban eVTOL</button>
+          <button type="button" class="filter-btn" data-filter="medevac" role="tab" aria-selected="false">Cứu nạn Y tế ICU</button>
+        </div>
+
+        <!-- Aircraft Grid Container -->
+        <div class="fleet-grid" id="fleetGridContainer" aria-live="polite">
+          <!-- Dynamically populated via FleetManager -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TECHNICAL SPECIFICATIONS COMPARATOR -->
+    <section class="section" id="specifications" aria-labelledby="specsTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">ENGINEERING MATRIX</div>
+          <h2 class="section-title" id="specsTitle">Bảng So Sánh Thông Số Kỹ Thuật</h2>
+          <p class="section-desc">Dữ liệu kiểm nghiệm bay thực tế được chứng thực bởi cơ quan hàng không dân dụng quốc tế.</p>
+        </div>
+
+        <div class="table-container">
+          <table class="specs-table" id="specsMatrixTable">
+            <thead>
+              <tr>
+                <th scope="col" style="min-width: 220px;">Thông số đo lường</th>
+                <th scope="col" class="model-header">HX-9 Stealth Phantom</th>
+                <th scope="col" class="model-header">H-600 SkyLifter</th>
+                <th scope="col" class="model-header">VT-4 Horizon eVTOL</th>
+                <th scope="col" class="model-header">Aura MedEvac-8</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="spec-param-title">Phân khúc sứ mệnh</td>
+                <td class="spec-val">Hành pháp & Doanh nhân VIP</td>
+                <td class="spec-val">Vận tải nặng & Dầu khí giàn khoan</td>
+                <td class="spec-val">Taxi bay nội đô Urban Air Mobility</td>
+                <td class="spec-val">Hồi sức cấp cứu chuyên sâu ICU</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Vận tốc tối đa (Vne)</td>
+                <td class="spec-val">375 km/h</td>
+                <td class="spec-val">320 km/h</td>
+                <td class="spec-val">270 km/h</td>
+                <td class="spec-val">345 km/h</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Vận tốc hành trình tiêu chuẩn</td>
+                <td class="spec-val">340 km/h</td>
+                <td class="spec-val">295 km/h</td>
+                <td class="spec-val">240 km/h</td>
+                <td class="spec-val">310 km/h</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Tầm bay tối đa liên tục</td>
+                <td class="spec-val">920 km</td>
+                <td class="spec-val">1,150 km</td>
+                <td class="spec-val">280 km (100% pin)</td>
+                <td class="spec-val">780 km</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Tải trọng hữu ích (Payload)</td>
+                <td class="spec-val">1,800 kg</td>
+                <td class="spec-val">6,500 kg (Móc cẩu ngoài)</td>
+                <td class="spec-val">520 kg</td>
+                <td class="spec-val">1,650 kg</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Trần bay hoạt động</td>
+                <td class="spec-val">6,200 m</td>
+                <td class="spec-val">7,000 m</td>
+                <td class="spec-val">3,500 m</td>
+                <td class="spec-val">6,500 m</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Độ ồn cabin hành khách</td>
+                <td class="spec-val">64 dBA</td>
+                <td class="spec-val">78 dBA</td>
+                <td class="spec-val">48 dBA (Siêu tĩnh)</td>
+                <td class="spec-val">66 dBA</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Sức chứa hành khách / kíp lái</td>
+                <td class="spec-val">8 ghế VIP</td>
+                <td class="spec-val">2 phi công + 18 kỹ thuật viên</td>
+                <td class="spec-val">5 hành khách (Tự bay)</td>
+                <td class="spec-val">2 phi công + 2 bác sĩ + 2 cáng</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Hệ thống động lực</td>
+                <td class="spec-val">Twin Turboshaft + 250kW Electric</td>
+                <td class="spec-val">Twin GE T408 (7,500 shp)</td>
+                <td class="spec-val">8x Động cơ điện nam châm vĩnh cửu</td>
+                <td class="spec-val">Twin Pratt & Whitney PW207D</td>
+              </tr>
+              <tr>
+                <td class="spec-param-title">Mức cọc đặt giữ chỗ</td>
+                <td class="spec-val" style="color: var(--accent-cyan);">$50,000 USD</td>
+                <td class="spec-val" style="color: var(--accent-cyan);">$100,000 USD</td>
+                <td class="spec-val" style="color: var(--accent-cyan);">$25,000 USD</td>
+                <td class="spec-val" style="color: var(--accent-cyan);">$40,000 USD</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FORM & REAL WEBHOOK DISPATCH -->
+    <section class="section booking-section" id="booking" aria-labelledby="bookingTitle">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">TEST FLIGHT & VIP INQUIRY</div>
+          <h2 class="section-title" id="bookingTitle">Đăng Ký Nhận Tin & Đặt Lịch Bay Thử</h2>
+          <p class="section-desc">Điền thông tin thẩm định để nhận hồ sơ kỹ thuật mật hoặc đặt lịch trải nghiệm bay thực địa tại Helipad Vertiport.</p>
+        </div>
+
+        <div class="booking-wrapper">
+          <form id="leadBookingForm" novalidate>
+            <div class="form-grid">
+              <div class="form-grid form-grid-2col">
+                <div class="form-group">
+                  <label for="fullNameInput" class="form-label">Họ và tên quý khách *</label>
+                  <input type="text" id="fullNameInput" name="fullName" class="form-input" placeholder="Nguyễn Văn A" required />
+                  <span class="form-error-msg" id="fullNameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="emailInput" class="form-label">Email liên hệ chính thức *</label>
+                  <input type="email" id="emailInput" name="email" class="form-input" placeholder="nguyen.a@company.com" required />
+                  <span class="form-error-msg" id="emailError"></span>
+                </div>
+              </div>
+
+              <div class="form-grid form-grid-2col">
+                <div class="form-group">
+                  <label for="phoneInput" class="form-label">Số điện thoại di động *</label>
+                  <input type="tel" id="phoneInput" name="phone" class="form-input" placeholder="0912345678" required />
+                  <span class="form-error-msg" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="categorySelect" class="form-label">Dòng máy bay quan tâm</label>
+                  <select id="categorySelect" name="interestedCategory" class="form-select">
+                    <option value="all">Tất cả danh mục máy bay</option>
+                    <option value="executive">Helicorp HX-9 Stealth Phantom (VIP)</option>
+                    <option value="cargo">Helicorp H-600 SkyLifter (Heavy Lift)</option>
+                    <option value="evtol">Helicorp Veloce VT-4 Horizon (eVTOL)</option>
+                    <option value="medevac">Helicorp Aura MedEvac-8 (Cấp cứu Y tế)</option>
+                  </select>
+                  <span class="form-error-msg"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="flightDateInput" class="form-label">Ngày bay thử nghiệm mong muốn (Tùy chọn)</label>
+                <input type="date" id="flightDateInput" name="flightExperienceDate" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <label for="notesInput" class="form-label">Yêu cầu bảo mật / Cấu hình bổ sung</label>
+                <textarea id="notesInput" name="notes" class="form-textarea" rows="3" placeholder="Ghi chú thêm về nhu cầu phi trường cá nhân, chứng chỉ phi công hoặc cấu hình nội thất đặc biệt..."></textarea>
+              </div>
+
+              <div class="form-webhook-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span>Dữ liệu được xác thực và gửi tức thì qua Webhook REST API mã hóa SSL TLS 1.3</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="formSubmitBtn" style="width: 100%; padding: 0.875rem;">
+                <span id="submitBtnSpinner" style="display: none;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+                </span>
+                <span id="submitBtnText">Gửi Yêu Cầu Thẩm Định & Đặt Lịch Ngay</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RECENTLY VIEWED BOTTOM STRIP -->
+  <aside class="recently-viewed-strip" id="recentlyViewedStrip" aria-label="Máy bay đã xem gần đây">
+    <div class="container recent-items-container">
+      <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700;">ĐÃ XEM GẦN ĐÂY:</span>
+      <div id="recentItemsList" style="display: flex; gap: var(--space-xs); overflow-x: auto;">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="drawer-backdrop" id="wishlistBackdrop"></div>
+  <aside class="drawer-panel" id="wishlistDrawer" aria-labelledby="wishlistTitle" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="wishlistTitle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        Danh Sách Yêu Thích
+      </h3>
+      <button type="button" class="drawer-close-btn" id="closeWishlistBtn" aria-label="Đóng danh sách yêu thích">✕</button>
+    </div>
+    <div class="drawer-body" id="wishlistItemsContainer">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="drawer-footer">
+      <button type="button" class="btn btn-secondary btn-sm" id="clearWishlistBtn" style="width: 100%;">Xóa tất cả yêu thích</button>
+      <a href="#fleet" class="btn btn-primary btn-sm" id="wishlistExploreMoreBtn" style="width: 100%;">Khám phá thêm trực thăng</a>
+    </div>
+  </aside>
+
+  <!-- CART / PRE-ORDER CONFIGURATOR DRAWER -->
+  <div class="drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="drawer-panel" id="cartDrawer" aria-labelledby="cartTitle" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="cartTitle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        Giỏ Cọc Suất Bàn Giao
+      </h3>
+      <button type="button" class="drawer-close-btn" id="closeCartBtn" aria-label="Đóng giỏ cọc">✕</button>
+    </div>
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="drawer-footer">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.875rem; color: var(--text-secondary);">Tổng cọc ưu tiên:</span>
+        <span id="cartTotalDepositDisplay" style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan);">$0 USD</span>
+      </div>
+      <button type="button" class="btn btn-primary" id="checkoutPreOrderBtn" style="width: 100%;">
+        Xác Nhận Giữ Suất & Xuất Biên Nhận
+      </button>
+    </div>
+  </aside>
+
+  <!-- AIRCRAFT DETAIL CONFIGURATOR MODAL -->
+  <div class="drawer-backdrop" id="aircraftModalBackdrop"></div>
+  <div class="modal-container" id="aircraftDetailModal" role="dialog" aria-modal="true" aria-labelledby="modalAircraftName">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="modalAircraftName">Cấu Hình Máy Bay</h3>
+      <button type="button" class="drawer-close-btn" id="closeAircraftModalBtn" aria-label="Đóng cấu hình">✕</button>
+    </div>
+    <div class="drawer-body" id="modalAircraftBody">
+      <!-- Populated dynamically -->
+    </div>
+  </div>
+
+  <!-- LIVE AVIONICS TELEMETRY HUD (Floating cockpit console) -->
+  <aside class="hud-floating-trigger">
+    <button type="button" class="hud-trigger-btn" id="hudTriggerBtn" aria-label="Mở buồng lái dữ liệu Telemetry">
+      <span class="hud-pulse-dot"></span>
+      <span>LIVE TELEMETRY HUD</span>
+    </button>
+  </aside>
+
+  <div class="hud-console-drawer" id="hudConsoleDrawer" role="region" aria-label="Bảng điều khiển nhật ký sự kiện tương tác thời gian thực">
+    <div class="hud-console-header">
+      <span>● REALTIME FLIGHT LOGS</span>
+      <button type="button" id="closeHudConsoleBtn" style="color: var(--accent-cyan); cursor: pointer;">✕</button>
+    </div>
+    <div class="hud-log-stream" id="hudLogStream">
+      <div class="hud-log-entry event-click">
+        <span>[SYS_INIT] Hệ thống giám sát telemetry kết nối sẵn sàng.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI FLIGHT COPILOT ASSISTANT (Chatbot) -->
+  <aside class="chatbot-floating-trigger">
+    <button type="button" class="chat-trigger-btn" id="chatTriggerBtn" aria-label="Trò chuyện cùng AI Flight Assistant" title="AI Flight Assistant">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </button>
+  </aside>
+
+  <aside class="chat-widget-window" id="chatWidgetWindow" role="region" aria-label="Cửa sổ trợ lý ảo AI Flight Assistant">
+    <div class="chat-header">
+      <div class="chat-assistant-meta">
+        <div class="assistant-avatar">HC</div>
+        <div>
+          <div style="font-size: 0.875rem; font-weight: 700;">Helicorp Co-Pilot</div>
+          <div style="font-size: 0.6875rem; color: var(--accent-emerald);">● Trực tuyến hỗ trợ 24/7</div>
+        </div>
+      </div>
+      <button type="button" class="drawer-close-btn" id="closeChatBtn" aria-label="Thu nhỏ chat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBodyContainer">
+      <div class="chat-bubble assistant">
+        Chào quý khách! Tôi là trợ lý bay Helicorp Co-Pilot. Tôi có thể giải đáp thông số kỹ thuật, quy trình cất hạ cánh vertiport hoặc hỗ trợ quý khách đặt cọc giữ chỗ.
+      </div>
+    </div>
+    <div class="chat-chips-row">
+      <button type="button" class="chat-chip-btn" data-query="Mức giá cọc trực thăng HX-9 là bao nhiêu?">Giá cọc HX-9?</button>
+      <button type="button" class="chat-chip-btn" data-query="eVTOL VT-4 bay được bao xa khi sạc đầy?">Tầm bay VT-4 eVTOL?</button>
+      <button type="button" class="chat-chip-btn" data-query="Trực thăng H-600 cẩu được bao nhiêu tấn?">Tải trọng H-600?</button>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" class="chat-input" placeholder="Hỏi về trực thăng, tầm bay..." aria-label="Nội dung câu hỏi" />
+      <button type="button" class="btn btn-primary btn-sm" id="sendChatBtn" aria-label="Gửi câu hỏi">Gửi</button>
+    </div>
+  </aside>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#hero" class="brand-link" style="margin-bottom: var(--space-md);">
+            <img src="/images/logo.jpg" alt="Helicorp Logo" width="32" height="32" style="border-radius: 4px;" />
+            <span>HELI<span class="brand-text-accent">CORP</span></span>
+          </a>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); max-width: 320px; margin-bottom: var(--space-md);">
+            Tập đoàn hàng không tiên phong định hình tương lai giao thông trung tầng và giải pháp cứu hộ chiến thuật toàn cầu.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);">
+            CERTIFIED: FAA Part 29 · EASA CS-29 · ISO 9001:2015
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hạm đội máy bay</h4>
+          <ul class="footer-links">
+            <li><a href="#fleet" data-filter="executive">HX-9 Stealth Phantom</a></li>
+            <li><a href="#fleet" data-filter="cargo">H-600 SkyLifter</a></li>
+            <li><a href="#fleet" data-filter="evtol">Veloce VT-4 eVTOL</a></li>
+            <li><a href="#fleet" data-filter="medevac">Aura MedEvac-8 ICU</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Công nghệ hàng không</h4>
+          <ul class="footer-links">
+            <li><a href="#features">QuietRotor™ Acoustic</a></li>
+            <li><a href="#features">Turbine-Electric 800V</a></li>
+            <li><a href="#features">Level 4 Autonomous Flight</a></li>
+            <li><a href="#features">SafeLand™ LiDAR Autopilot</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Liên hệ đối tác</h4>
+          <ul class="footer-links">
+            <li>Trụ sở: Vertiport Hub 01, Hà Nội, Việt Nam</li>
+            <li>Hotline: +84 (024) 8888-AERO</li>
+            <li>Email: corporate@helicorp.aero</li>
+            <li>Chứng nhận bảo mật: TLS 1.3 End-to-End</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 HELICORP AEROSPACE CORPORATION. TẤT CẢ CÁC QUYỀN ĐƯỢC BẢO LƯU.</div>
+        <div style="display: flex; gap: var(--space-lg);">
+          <a href="#">Chính sách quyền riêng tư</a>
+          <a href="#">Điều khoản bảo mật bay</a>
+          <a href="#">Hồ sơ chứng chỉ FAA</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Application Script (Type Module - Zero Render Blocking) -->
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
